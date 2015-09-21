@@ -22,9 +22,9 @@
 #define STARTING_TIME_MINUTES 34
 #define STARTING_TIME_SECONDS 56
 #define STARTING_LATITUDE_INDIGO 3025.00
-#define STARTING_LONGITUDE_INDIGO 3025.00
+#define STARTING_LONGITUDE_INDIGO 9775.00
 #define STARTING_LATITUDE_AUSTIN 3025.00
-#define STARTING_LONGITUDE_AUSTIN 3025.00
+#define STARTING_LONGITUDE_AUSTIN 9775.00
 
 // Steady ones
 #define BIG_BUFFER_SIZE 200
@@ -63,13 +63,13 @@ float longitude = STARTING_LONGITUDE_AUSTIN;
 
                      //           1111111111222222222233333333334444444444555555555566666666667777777777
                      // 01234567890123456789012345678901234567890123456789012345678901234567890123456789
-char nmea1[] PROGMEM = "$GPGGA,tttttt.000,3028.9534,N,09747.6203,W,1,05,6.3,";
+char nmea1[] PROGMEM = "$GPGGA,tttttt.000,3025.000,N,09775.0000,W,1,05,6.3,";
 char nmea2[] PROGMEM = ".0,M,-22.5,M,,*6B";
 char nmea3[] PROGMEM = "$GPGSA,A,3,22,14,18,11,12,,,,,,,,6.6,6.3,1.7*3E";
 char nmea4[] PROGMEM = "$GPGSV,3,1,12,22,67,044,38,14,66,339,34,18,39,094,43,11,13,311,39*7B";
 char nmea5[] PROGMEM = "$GPGSV,3,2,12,12,08,081,38,31,29,193,22,19,14,272,21,25,12,116,*7B";
 char nmea6[] PROGMEM = "$GPGSV,3,2,12,12,08,081,38,31,29,193,22,19,14,272,21,25,12,116,*7B";
-char nmea7[] PROGMEM = "$GPRMC,tttttt.000,A,3028.9534,N,09747.6203,W,0.00,,050414,,,A*69";
+char nmea7[] PROGMEM = "$GPRMC,tttttt.000,A,3025.0000,N,09775.0000,W,0.00,,050414,,,A*69";
 
 PGM_P nmeatable[] PROGMEM = 
 {
@@ -237,7 +237,6 @@ void MakeTimeString()
 //--------------------------------------------------------------------
 void WriteGPGGA()
 {
-  // $GPGGA,tttttt.000,3028.9534,N,09747.6203,W,1,05,6.3,
   strcpy_P(bigBuffer, (PGM_P)pgm_read_word(&(nmeatable[GPGGAa])));  
   MakeTimeString();
   strncpy(bigBuffer + 7, littleBuffer, 6);
